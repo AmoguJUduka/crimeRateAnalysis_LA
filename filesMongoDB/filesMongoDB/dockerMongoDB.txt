@@ -1,0 +1,7 @@
+====================================
+ocker MongoDB 
+docker pull mongo:latest
+
+docker run --rm -it -p 27017:27017 --name dockerMongo mongo:latest
+docker run --rm -it -p 27018:27017 --name dockerMongo -v "c:/volumeDocker/data/db:/data/db" mongo:latest
+====================================
