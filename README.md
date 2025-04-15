@@ -1,38 +1,41 @@
 # Los Angeles Crime Data Analytics Platform
 
 ## Project Overview
-A distributed big data analytics framework for processing, analyzing, and modeling crime data from the Los Angeles Police Department (LAPD). This system employs advanced ETL pipelines, spatial-temporal analysis algorithms, and machine learning models to extract actionable intelligence from multi-terabyte crime datasets spanning over 15 years.
+A distributed big data analytics framework for processing, analyzing, and modeling crime data from the Los Angeles Police Department (LAPD). This system employs PySpark-driven ETL pipelines, spatial-temporal analysis algorithms, and machine learning models to extract actionable intelligence from crime datasets spanning 5 years (2020-2025).
 
 ## Technical Architecture
 
 ### Data Pipeline
-- **Ingestion Layer**: Apache Kafka/NiFi for real-time data acquisition from LAPD APIs
-- **Storage Layer**: HDFS/S3 data lake with Parquet format and Delta Lake for ACID transactions
-- **Processing**: Spark 3.4+ for distributed batch and stream processing
-- **Query Engine**: Presto/Trino for SQL analytics across heterogeneous data sources
+- **Development Environment**: Jupyter Notebook for interactive analysis and model development
+- **Processing Engine**: PySpark for distributed data processing and feature engineering 
+- **Storage Layer**: MongoDB for document storage with Parquet files for optimized analytics
+- **Data Format**: Parquet for columnar storage with compression and efficient querying
 
 ### Analysis Components
-- **Spatiotemporal Analysis**: GeoPandas + PostGIS integration for complex geospatial queries
-- **Time Series Decomposition**: Prophet + statsmodels for seasonal trend detection
-- **Anomaly Detection**: Isolation Forest and DBSCAN algorithms for outlier identification
-- **Clustering**: K-means and HDBSCAN for crime pattern classification
+- **Data Preparation**: PySpark DataFrame operations for cleaning, transformation, and feature extraction
+- **Spatiotemporal Analysis**: PySpark ML + MongoDB geospatial queries for location-based crime pattern detection
+- **Time Series Analysis**: PySpark time-series functions for temporal trend identification across different crime categories
+- **Statistical Modeling**: PySpark MLlib for predictive modeling and classification of crime incidents
+- **Geospatial Clustering**: DBSCAN implementation in PySpark for identifying crime hotspots
 
 ### Visualization & Insights
-- **Interactive Dashboard**: Dash/Plotly backend with React frontend
-- **Mapping Service**: Deck.gl for rendering high-performance geospatial visualizations
-- **Report Generation**: Automated PDF generation with statistical significance testing
+- **Jupyter Notebooks**: Interactive analysis and visualization using matplotlib, seaborn, and folium
+- **MongoDB Aggregation**: Complex data aggregations for time-based and location-based insights
+- **Geospatial Mapping**: Choropleth maps and heatmaps for crime density visualization
 
-## Performance Metrics
-- Processing capability: ~500M crime records/hour
-- Model refresh: Daily incremental training
-- Query latency: Sub-second for pre-aggregated metrics, <5s for ad-hoc spatial queries
+## Implementation Details
+- **PySpark Configuration**: Optimized for Parquet I/O with 8 executors, 4 cores each
+- **Data Volume**: Processing approximately 1.5 million crime records across 5 years
+- **Parquet Schema**: Snappy compression with partitioning by date and district
+- **Performance Tuning**: Predicate pushdown and column pruning for optimized query performance
+- **MongoDB Integration**: Using MongoDB as metadata store with Parquet files for raw data
 
-## Development Environment
-- Docker-compose for local development
-- CI/CD via GitHub Actions
-- Unit tests with pytest and integration tests with Great Expectations
+## Development Workflow
+- Interactive development via Jupyter Notebooks
+- PySpark jobs for batch processing of historical data
+- MongoDB aggregation pipelines for real-time queries and dashboards
 
 ## Data Sources
-- LAPD Crime Data (2010-Present)
-- LA County Census Tracts
-- Socioeconomic indicators from American Community Survey
+- LAPD Crime Data (2019-2024)
+- LA Neighborhood Boundary Data
+- Demographic statistics for correlation analysis
