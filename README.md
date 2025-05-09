@@ -35,6 +35,8 @@ A distributed big data analytics framework for processing, analyzing, and modeli
 - PySpark jobs for batch processing of historical data
 - MongoDB aggregation pipelines for real-time queries and dashboards
 
+![System Architecture](SystemArchitecture.png)
+
 ## Data Sources
 - LAPD Crime Data (2019-2024)
 - LA Neighborhood Boundary Data
